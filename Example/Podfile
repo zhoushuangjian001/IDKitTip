@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'IDKitTip_Example' do
+  pod 'IDKitTip', :path => '../'
+
+  target 'IDKitTip_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
