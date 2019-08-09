@@ -28,10 +28,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		06A71CF870783673EB655482 /* IDKitTip.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = IDKitTip.podspec; path = ../IDKitTip.podspec; sourceTree = "<group>"; };
+		06A71CF870783673EB655482 /* IDKitTip.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = IDKitTip.podspec; path = ../IDKitTip.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		22082B8B14C69B4345D39C1B /* Pods-IDKitTip_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDKitTip_Example.debug.xcconfig"; path = "Target Support Files/Pods-IDKitTip_Example/Pods-IDKitTip_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		22822C4C1034DE2084408C91 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		443044A60593F1085F5A7FDB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		22822C4C1034DE2084408C91 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		443044A60593F1085F5A7FDB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		4809DA2883B4A34B3347110C /* Pods-IDKitTip_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDKitTip_Example.release.xcconfig"; path = "Target Support Files/Pods-IDKitTip_Example/Pods-IDKitTip_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* IDKitTip_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IDKitTip_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,7 +77,6 @@
 				A5755EEA607FD0708A2B431F /* Pods-IDKitTip_Tests.debug.xcconfig */,
 				BED22E355E58B280AA96241E /* Pods-IDKitTip_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -227,6 +226,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);

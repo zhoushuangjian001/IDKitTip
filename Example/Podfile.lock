@@ -1,0 +1,16 @@
+PODS:
+  - IDKitTip (0.1.0)
+
+DEPENDENCIES:
+  - IDKitTip (from `../`)
+
+EXTERNAL SOURCES:
+  IDKitTip:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  IDKitTip: c21560aada012cde3da7a9bb5d6eaf2eab2a6db8
+
+PODFILE CHECKSUM: 8c289376f9d62e45b594c71dbe333be52b2a648f
+
+COCOAPODS: 1.7.5

@@ -1,0 +1,6 @@
+framework module IDKitTip {
+  umbrella header "IDKitTip-umbrella.h"
+
+  export *
+  module * { export * }
+}
