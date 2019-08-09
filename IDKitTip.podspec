@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-这是一个可以自定义的 App 各种提示的库,有文字提示、活动指示器提示、可自定义的提示等。
+                        这是一个可以自定义的 App 各种提示的库,有文字提示、活动指示器提示、可自定义的提示等。
                        DESC
 
   s.homepage         = 'https://github.com/zhoushuangjian001/IDKitTip'
@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
-  s.swift_version = '4.2'
+  s.swift_version = '4'
   s.source_files = 'IDKitTip/Classes/**/*'
   
   # s.resource_bundles = {
