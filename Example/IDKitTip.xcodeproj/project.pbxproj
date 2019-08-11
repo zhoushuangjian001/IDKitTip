@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		0E242D7B06E4AF993244F1E7 /* Pods_IDKitTip_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8047367CA9B17D4E3084131B /* Pods_IDKitTip_Example.framework */; };
+		161E4A6F23003D160082BB91 /* dog.png in Resources */ = {isa = PBXBuildFile; fileRef = 161E4A6E23003D160082BB91 /* dog.png */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		60D82442AB1D80D988BE45AF /* Pods_IDKitTip_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74C30C1F26618C14180F07C9 /* Pods_IDKitTip_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		06A71CF870783673EB655482 /* IDKitTip.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = IDKitTip.podspec; path = ../IDKitTip.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		161E4A6E23003D160082BB91 /* dog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dog.png; sourceTree = "<group>"; };
 		22082B8B14C69B4345D39C1B /* Pods-IDKitTip_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDKitTip_Example.debug.xcconfig"; path = "Target Support Files/Pods-IDKitTip_Example/Pods-IDKitTip_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		22822C4C1034DE2084408C91 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		443044A60593F1085F5A7FDB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -45,8 +46,10 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		74C30C1F26618C14180F07C9 /* Pods_IDKitTip_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IDKitTip_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8047367CA9B17D4E3084131B /* Pods_IDKitTip_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IDKitTip_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		947BAB5895846AEE06E690F7 /* Pods-IDKitTip_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDKitTip_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IDKitTip_Example/Pods-IDKitTip_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		A5755EEA607FD0708A2B431F /* Pods-IDKitTip_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDKitTip_Tests.debug.xcconfig"; path = "Target Support Files/Pods-IDKitTip_Tests/Pods-IDKitTip_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		BED22E355E58B280AA96241E /* Pods-IDKitTip_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDKitTip_Tests.release.xcconfig"; path = "Target Support Files/Pods-IDKitTip_Tests/Pods-IDKitTip_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		C64D3CE0E63369F85C2FDDC6 /* Pods-IDKitTip_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDKitTip_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-IDKitTip_Example/Pods-IDKitTip_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +65,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60D82442AB1D80D988BE45AF /* Pods_IDKitTip_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +78,8 @@
 				4809DA2883B4A34B3347110C /* Pods-IDKitTip_Example.release.xcconfig */,
 				A5755EEA607FD0708A2B431F /* Pods-IDKitTip_Tests.debug.xcconfig */,
 				BED22E355E58B280AA96241E /* Pods-IDKitTip_Tests.release.xcconfig */,
+				947BAB5895846AEE06E690F7 /* Pods-IDKitTip_Example.debug.xcconfig */,
+				C64D3CE0E63369F85C2FDDC6 /* Pods-IDKitTip_Example.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -104,6 +108,7 @@
 		607FACD21AFB9204008FA782 /* Example for IDKitTip */ = {
 			isa = PBXGroup;
 			children = (
+				161E4A6E23003D160082BB91 /* dog.png */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -185,7 +190,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "IDKitTip_Tests" */;
 			buildPhases = (
-				EF94BEB8778EBFA1C8CF4B43 /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
@@ -212,12 +216,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 7RQ55JGR5K;
+						DevelopmentTeam = YY9THQMRZF;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 7RQ55JGR5K;
+						DevelopmentTeam = YY9THQMRZF;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -247,6 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				161E4A6F23003D160082BB91 /* dog.png in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
@@ -269,7 +274,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-IDKitTip_Example/Pods-IDKitTip_Example-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-IDKitTip_Example/Pods-IDKitTip_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/IDKitTip/IDKitTip.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -278,7 +283,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IDKitTip_Example/Pods-IDKitTip_Example-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IDKitTip_Example/Pods-IDKitTip_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8B991C5FF6CD1F6BC5657A63 /* [CP] Check Pods Manifest.lock */ = {
@@ -286,39 +291,13 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-IDKitTip_Example-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EF94BEB8778EBFA1C8CF4B43 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-IDKitTip_Tests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -485,11 +464,11 @@
 			baseConfigurationReference = 22082B8B14C69B4345D39C1B /* Pods-IDKitTip_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7RQ55JGR5K;
+				DEVELOPMENT_TEAM = YY9THQMRZF;
 				INFOPLIST_FILE = IDKitTip/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -498,14 +477,14 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4809DA2883B4A34B3347110C /* Pods-IDKitTip_Example.release.xcconfig */;
+			baseConfigurationReference = C64D3CE0E63369F85C2FDDC6 /* Pods-IDKitTip_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7RQ55JGR5K;
+				DEVELOPMENT_TEAM = YY9THQMRZF;
 				INFOPLIST_FILE = IDKitTip/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -514,9 +493,8 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A5755EEA607FD0708A2B431F /* Pods-IDKitTip_Tests.debug.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 7RQ55JGR5K;
+				DEVELOPMENT_TEAM = YY9THQMRZF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -537,9 +515,8 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BED22E355E58B280AA96241E /* Pods-IDKitTip_Tests.release.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 7RQ55JGR5K;
+				DEVELOPMENT_TEAM = YY9THQMRZF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",

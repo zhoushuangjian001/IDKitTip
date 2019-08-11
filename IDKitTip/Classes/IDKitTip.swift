@@ -16,7 +16,7 @@ extension UIView  {
     /// - Parameters:
     ///   - centeryMultiplier: 相对父视图中心位置的乘数
     ///   - constant: 相对中心位置偏移
-    func displayLoading(_ centeryMultiplier:CGFloat = 1.0, _ constant:CGFloat = 0) {
+    public func displayLoading(_ centeryMultiplier:CGFloat = 1.0, _ constant:CGFloat = 0) {
         self.displayLoading("com.idkit.tip", centeryMultiplier, constant)
     }
     
@@ -26,9 +26,11 @@ extension UIView  {
     ///   - msg: 展示的内容
     ///   - centeryMultiplier: 相对父视图中心位置的乘数
     ///   - constant: 相对中心位置偏移
-    func displayLoading(_ msg:String, _ centeryMultiplier:CGFloat = 1.0, _ constant:CGFloat = 0) {
+    public func displayLoading(_ msg:String, _ centeryMultiplier:CGFloat = 1.0, _ constant:CGFloat = 0) {
         let gbView = self.gbView
         self.addSubview(gbView)
+        print(gbView)
+
         let marginTop:NSLayoutConstraint = NSLayoutConstraint.init(item: gbView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0)
         let marginLeft:NSLayoutConstraint = NSLayoutConstraint.init(item: gbView, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1, constant: 0)
         let marginBottom:NSLayoutConstraint = NSLayoutConstraint.init(item: gbView, attribute: .bottom , relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0)
@@ -71,7 +73,7 @@ extension UIView  {
         }
     }
     
-    func hiddenLoading() {
+    public func hiddenLoading() {
         var view = objc_getAssociatedObject(self, self.markKey) as? IDKitView
         if view != nil {
             DispatchQueue.main.async {
@@ -112,9 +114,145 @@ extension UIView  {
 
 extension UIView {
     
-    
-    
+    public func displayTip(_ msg:String ,_ centeryMultiplier:CGFloat = 1.0, _ constant:CGFloat = 0, timeInterval:Double = 3) {
+        self.displayTip(tipTitle:nil, tipImage: nil, tipMsg: msg, tipActions: nil, centeryMultiplier, constant, timeInterval: timeInterval, method: nil)
+    }
+
+    public func displayTip(tipTitle title:String, tipMsg msg:String, _ centeryMultiplier:CGFloat = 1.0, _ constant:CGFloat = 0, timeInterval:Double = 3) {
+        self.displayTip(tipTitle: title, tipImage: nil, tipMsg: msg, tipActions: nil, centeryMultiplier, constant, timeInterval: timeInterval, method: nil)
+    }
+
+    public func dispalyTip(tipImage image:UIImage, tipMsg msg:String, _ centeryMultiplier:CGFloat = 1.0, _ constant:CGFloat = 0, timeInterval:Double = 3) {
+        self.displayTip(tipTitle: nil, tipImage: image, tipMsg: msg, tipActions: nil, centeryMultiplier, constant, timeInterval: timeInterval, method: nil)
+    }
+
+    public func displayTip(tipTitle title:String = "温馨提示", tipMsg msg:String, tipActions actions:Array<String>, _ centeryMultiplier:CGFloat = 1.0, _ constant:CGFloat = 0, timeInterval:Double = 3, method:@escaping (_ index:NSInteger)->Void) {
+        self.displayTip(tipTitle: title, tipImage: nil, tipMsg: msg, tipActions: actions, centeryMultiplier, constant, timeInterval: timeInterval, method: method)
+    }
+
+    func displayTip(tipTitle title:String?, tipImage image:UIImage?, tipMsg msg:String, tipActions actions:Array<String>?, _ centeryMultiplier:CGFloat = 1.0, _ constant:CGFloat = 0, timeInterval:Double = 3,method:((_ index:NSInteger)->Void)?) -> Void {
+
+        let gbView = self.gbView;
+        print(gbView)
+        self.addSubview(gbView)
+        let gbTop = NSLayoutConstraint.init(item: gbView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: 0);
+        let gbLeft = NSLayoutConstraint.init(item: gbView, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1.0, constant: 0)
+        let gbBottom = NSLayoutConstraint.init(item: gbView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: 0)
+        let gbRight = NSLayoutConstraint.init(item: gbView, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1.0, constant: 0)
+        self.addConstraints([gbTop,gbLeft,gbBottom,gbRight])
+
+        let tbView = self.bView;
+        gbView.addSubview(tbView)
+        let centerX = NSLayoutConstraint.init(item: tbView, attribute: .centerX, relatedBy: .equal, toItem: gbView, attribute: .centerX, multiplier: 1.0, constant: 0)
+        let centerY = NSLayoutConstraint.init(item: tbView, attribute: .centerY, relatedBy: .equal, toItem: gbView, attribute: .centerY, multiplier: centeryMultiplier, constant: constant)
+        let tbWidth = NSLayoutConstraint.init(item: tbView, attribute: .width, relatedBy: .lessThanOrEqual, toItem: gbView, attribute: .width, multiplier: 0.68, constant: 0)
+        gbView.addConstraints([tbWidth,centerX,centerY])
+
+        var tempAny:Any?
+        if (title != nil && title?.count != 0) {
+            let titleLabel = self.tipTitleLabel
+            tempAny = titleLabel
+            titleLabel.text = title
+            tbView.addSubview(titleLabel)
+            let tTop = NSLayoutConstraint.init(item: titleLabel, attribute: .top, relatedBy: .equal, toItem: tbView, attribute: .top, multiplier: 1.0, constant: 20)
+            let tLeft = NSLayoutConstraint.init(item: titleLabel, attribute: .left, relatedBy: .lessThanOrEqual, toItem: tbView, attribute: .left, multiplier: 1.0, constant: 30)
+            let tRight = NSLayoutConstraint.init(item: titleLabel, attribute: .right, relatedBy: .lessThanOrEqual, toItem: tbView, attribute: .right, multiplier: 1.0, constant: -30)
+            tbView.addConstraints([tTop, tLeft, tRight])
+        }
+
+        if image != nil {
+            let imageV = self.tipImageView
+            imageV.image = image
+            tempAny = imageV
+            tbView.addSubview(imageV)
+            let imageVTop = NSLayoutConstraint.init(item: imageV, attribute: .top, relatedBy: .equal, toItem: tbView, attribute: .top, multiplier: 1.0, constant: 20)
+            let imageVCenterX = NSLayoutConstraint.init(item: imageV, attribute: .centerX, relatedBy: .equal, toItem: tbView, attribute: .centerX, multiplier: 1.0, constant: 0)
+            tbView.addConstraints([imageVTop,imageVCenterX])
+        }
+
+
+        let msgLabel = self.tipMsgLabel
+        msgLabel.text = msg
+        tbView.addSubview(msgLabel)
+        let msgTop = NSLayoutConstraint.init(item: msgLabel, attribute: .top, relatedBy: .equal, toItem: tempAny == nil ? tbView:tempAny!, attribute: tempAny == nil ?.top:.bottom, multiplier: 1.0, constant: 20)
+        let msgLeft = NSLayoutConstraint.init(item: msgLabel, attribute: .left, relatedBy: .equal, toItem: tbView, attribute: .left, multiplier: 1.0, constant: 10)
+        let msgRight = NSLayoutConstraint.init(item: msgLabel, attribute: .right, relatedBy: .equal, toItem: tbView, attribute: .right, multiplier: 1.0, constant: -10)
+        tbView.addConstraints([msgTop, msgLeft,  msgRight])
+
+        if actions != nil && actions?.count != 0 {
+            let btnActionCancle = self.tipButton
+            btnActionCancle.setTitle(actions?.first!, for: .normal)
+            btnActionCancle.addTarget(self, action:#selector(btnAction(_ :)), for: .touchUpInside)
+            btnActionCancle.buttonAction = { index in
+                method!(index)
+            }
+            tbView.addSubview(btnActionCancle)
+            let bCancleTop = NSLayoutConstraint.init(item: btnActionCancle, attribute: .top, relatedBy: .equal, toItem: msgLabel, attribute: .bottom, multiplier: 1.0, constant: 0)
+            let bCancleLeft = NSLayoutConstraint.init(item: btnActionCancle, attribute: .left, relatedBy: .equal, toItem: tbView, attribute: .left, multiplier: 1.0, constant: 0)
+            let bCancleRight = NSLayoutConstraint.init(item: btnActionCancle, attribute: .right, relatedBy: .equal, toItem: tbView, attribute: .right, multiplier: 1.0, constant: 0)
+            let bCancleBottom = NSLayoutConstraint.init(item: btnActionCancle, attribute: .bottom, relatedBy: .equal, toItem: tbView, attribute: .bottom, multiplier: 1.0, constant: -10)
+            tbView.addConstraints([bCancleTop, bCancleLeft, bCancleBottom, bCancleRight])
+        } else {
+            let msgBottom = NSLayoutConstraint.init(item: msgLabel, attribute: .bottom, relatedBy: .equal, toItem: tbView, attribute: .bottom, multiplier: 1.0, constant: -20)
+            tbView.addConstraint(msgBottom)
+        }
+    }
+
+    public func hiddenTip() {
+
+    }
+
+
+    /// 按钮事件处理函数
+    ///
+    /// - Parameter button: 按钮对象
+    @objc func btnAction(_ button:TipAction) {
+        button.buttonAction!(button.tag)
+    }
+
+
+    var tipTitleLabel:UILabel {
+        let label = UILabel.init()
+        label.textColor = .black
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label;
+    }
+
+    var tipMsgLabel:UILabel {
+        let label = UILabel.init()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.text = "我微博世界观赴法国"
+        label.textAlignment = .center
+        label.textColor = .black
+        print("ss--ss")
+        return label
+    }
+
+    var tipImageView:UIImageView {
+        let imageView = UIImageView.init()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }
+
+    var tipButton:TipAction {
+        let button = TipAction.init(type: .custom)
+        button.setTitleColor(.black, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button;
+    }
+
+
 }
+
+
+class TipAction: UIButton {
+
+    /// 按钮事件的回调
+    var buttonAction:((Int)->Void)?
+}
+
 
 
 
