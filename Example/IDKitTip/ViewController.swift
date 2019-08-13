@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         view2.backgroundColor = .purple
         self.view.addSubview(view2)
 
-        view1.displayTip(tipTitle: "温馨", tipMsg: "提示杀死", tipActions: ["确定"], 1.0, 0, timeInterval: 5) { (index) in
+        view1.displayTip(tipTitle: "温馨", tipMsg: "提", tipActions: ["确定"], 1.0, 0, timeInterval: 5) { (index) in
             print("我点击的是第一行：\(index)")
         }
         view2.dispalyTip(tipImage: UIImage.init(named: "dog.png")!, tipMsg: "你是一条小奶狗", 0.5, 0, timeInterval: 5)

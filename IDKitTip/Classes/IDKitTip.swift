@@ -154,10 +154,11 @@ extension UIView {
             tempAny = titleLabel
             titleLabel.text = title
             tbView.addSubview(titleLabel)
-            let tTop = NSLayoutConstraint.init(item: titleLabel, attribute: .top, relatedBy: .equal, toItem: tbView, attribute: .top, multiplier: 1.0, constant: 20)
+            let tTop = NSLayoutConstraint.init(item: titleLabel, attribute: .top, relatedBy: .equal, toItem: tbView, attribute: .top, multiplier: 1.0, constant: 15)
             let tLeft = NSLayoutConstraint.init(item: titleLabel, attribute: .left, relatedBy: .lessThanOrEqual, toItem: tbView, attribute: .left, multiplier: 1.0, constant: 30)
             let tRight = NSLayoutConstraint.init(item: titleLabel, attribute: .right, relatedBy: .lessThanOrEqual, toItem: tbView, attribute: .right, multiplier: 1.0, constant: -30)
-            tbView.addConstraints([tTop, tLeft, tRight])
+            let tCenterX = NSLayoutConstraint.init(item: titleLabel, attribute: .centerX, relatedBy: .equal, toItem: tbView, attribute: .centerX, multiplier: 1.0, constant: 0)
+            tbView.addConstraints([tTop, tLeft, tRight, tCenterX])
         }
 
         if image != nil {
@@ -165,7 +166,7 @@ extension UIView {
             imageV.image = image
             tempAny = imageV
             tbView.addSubview(imageV)
-            let imageVTop = NSLayoutConstraint.init(item: imageV, attribute: .top, relatedBy: .equal, toItem: tbView, attribute: .top, multiplier: 1.0, constant: 20)
+            let imageVTop = NSLayoutConstraint.init(item: imageV, attribute: .top, relatedBy: .equal, toItem: tbView, attribute: .top, multiplier: 1.0, constant: 15)
             let imageVCenterX = NSLayoutConstraint.init(item: imageV, attribute: .centerX, relatedBy: .equal, toItem: tbView, attribute: .centerX, multiplier: 1.0, constant: 0)
             tbView.addConstraints([imageVTop,imageVCenterX])
         }
@@ -174,24 +175,49 @@ extension UIView {
         let msgLabel = self.tipMsgLabel
         msgLabel.text = msg
         tbView.addSubview(msgLabel)
-        let msgTop = NSLayoutConstraint.init(item: msgLabel, attribute: .top, relatedBy: .equal, toItem: tempAny == nil ? tbView:tempAny!, attribute: tempAny == nil ?.top:.bottom, multiplier: 1.0, constant: 20)
-        let msgLeft = NSLayoutConstraint.init(item: msgLabel, attribute: .left, relatedBy: .equal, toItem: tbView, attribute: .left, multiplier: 1.0, constant: 10)
-        let msgRight = NSLayoutConstraint.init(item: msgLabel, attribute: .right, relatedBy: .equal, toItem: tbView, attribute: .right, multiplier: 1.0, constant: -10)
+        let msgTop = NSLayoutConstraint.init(item: msgLabel, attribute: .top, relatedBy: .equal, toItem: tempAny == nil ? tbView:tempAny!, attribute: tempAny == nil ?.top:.bottom, multiplier: 1.0, constant: 15)
+        let msgLeft = NSLayoutConstraint.init(item: msgLabel, attribute: .left, relatedBy: .equal, toItem: tbView, attribute: .left, multiplier: 1.0, constant: 15)
+        let msgRight = NSLayoutConstraint.init(item: msgLabel, attribute: .right, relatedBy: .equal, toItem: tbView, attribute: .right, multiplier: 1.0, constant: -15)
         tbView.addConstraints([msgTop, msgLeft,  msgRight])
 
         if actions != nil && actions?.count != 0 {
-            let btnActionCancle = self.tipButton
-            btnActionCancle.setTitle(actions?.first!, for: .normal)
-            btnActionCancle.addTarget(self, action:#selector(btnAction(_ :)), for: .touchUpInside)
-            btnActionCancle.buttonAction = { index in
-                method!(index)
+            let horzLine = self.tipHorizontalLine
+            tbView.addSubview(horzLine)
+            let hlTop = NSLayoutConstraint.init(item: horzLine, attribute: .top, relatedBy: .equal, toItem: msgLabel, attribute: .bottom, multiplier: 1.0, constant: 15)
+            let hlLeft = NSLayoutConstraint.init(item: horzLine, attribute: .left, relatedBy: .equal, toItem: tbView, attribute: .left, multiplier: 1.0, constant: 0)
+            let hlRight = NSLayoutConstraint.init(item: horzLine, attribute: .right, relatedBy: .equal, toItem: tbView, attribute: .right, multiplier: 1.0, constant: 0)
+            let hlheight = NSLayoutConstraint.init(item: horzLine, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1.0, constant: 0.5)
+            tbView.addConstraints([hlTop, hlLeft, hlRight,hlheight])
+            
+            var tempAction:TipAction?
+            var index:Int = 0
+            actions!.forEach({ (title) in
+                let button = self.tipButton
+                button.setTitle(title, for: .normal)
+                button.tag = index
+                
+                
+            })
+            
+            if (actions?.count == 1) {
+                let btnAction = self.tipButton
+                btnAction.setTitle(actions?.first!, for: .normal)
+                btnAction.addTarget(self, action:#selector(btnAction(_ :)), for: .touchUpInside)
+                btnAction.buttonAction = { index in
+                    method!(index)
+                }
+                tbView.addSubview(btnAction)
+                let bCancleTop = NSLayoutConstraint.init(item: btnAction, attribute: .top, relatedBy: .equal, toItem: horzLine, attribute: .bottom, multiplier: 1.0, constant: 0)
+                let bCancleLeft = NSLayoutConstraint.init(item: btnAction, attribute: .left, relatedBy: .equal, toItem: tbView, attribute: .left, multiplier: 1.0, constant: 0)
+                let bCancleRight = NSLayoutConstraint.init(item: btnAction, attribute: .right, relatedBy: .equal, toItem: tbView, attribute: .right, multiplier: 1.0, constant: 0)
+                let bCancleBottom = NSLayoutConstraint.init(item: btnAction, attribute: .bottom, relatedBy: .equal, toItem: tbView, attribute: .bottom, multiplier: 1.0, constant: 0)
+                tbView.addConstraints([bCancleTop, bCancleLeft, bCancleBottom, bCancleRight])
             }
-            tbView.addSubview(btnActionCancle)
-            let bCancleTop = NSLayoutConstraint.init(item: btnActionCancle, attribute: .top, relatedBy: .equal, toItem: msgLabel, attribute: .bottom, multiplier: 1.0, constant: 0)
-            let bCancleLeft = NSLayoutConstraint.init(item: btnActionCancle, attribute: .left, relatedBy: .equal, toItem: tbView, attribute: .left, multiplier: 1.0, constant: 0)
-            let bCancleRight = NSLayoutConstraint.init(item: btnActionCancle, attribute: .right, relatedBy: .equal, toItem: tbView, attribute: .right, multiplier: 1.0, constant: 0)
-            let bCancleBottom = NSLayoutConstraint.init(item: btnActionCancle, attribute: .bottom, relatedBy: .equal, toItem: tbView, attribute: .bottom, multiplier: 1.0, constant: -10)
-            tbView.addConstraints([bCancleTop, bCancleLeft, bCancleBottom, bCancleRight])
+            
+            if (actions?.count == 2) {
+                
+            }
+            
         } else {
             let msgBottom = NSLayoutConstraint.init(item: msgLabel, attribute: .bottom, relatedBy: .equal, toItem: tbView, attribute: .bottom, multiplier: 1.0, constant: -20)
             tbView.addConstraint(msgBottom)
@@ -215,6 +241,7 @@ extension UIView {
         let label = UILabel.init()
         label.textColor = .black
         label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label;
     }
@@ -223,10 +250,9 @@ extension UIView {
         let label = UILabel.init()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.text = "我微博世界观赴法国"
         label.textAlignment = .center
         label.textColor = .black
-        print("ss--ss")
+        label.font = UIFont.systemFont(ofSize: 16)
         return label
     }
 
@@ -239,10 +265,17 @@ extension UIView {
     var tipButton:TipAction {
         let button = TipAction.init(type: .custom)
         button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 17)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitleColor(.blue, for: .normal)
         return button;
     }
 
+    var tipHorizontalLine:IDKitView {
+        let view = IDKitView.init()
+        view.backgroundColor = .gray
+        return view
+    }
 
 }
 
